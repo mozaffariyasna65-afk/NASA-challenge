@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroVision AI | Advanced Research Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* بک‌گراند لایو - مغز متحرک */
+        .live-brain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            animation: brainPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes brainPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+        }
+
+        /* نورهای متحرک */
+        .floating-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .light {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatLight 15s infinite linear;
+            filter: blur(40px);
+        }
+
+        .light:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+        }
+
+        .light:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+        }
+
+        .light:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+        }
+
+        @keyframes floatLight {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            25% {
+                transform: translate(100px, -50px) scale(1.2);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-50px, 100px) scale(0.8);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translate(-100px, -50px) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        /* شبکه عصبی متحرک */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .neuron {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            animation: neuronPulse 3s infinite;
+        }
+
+        .synapse {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1);
+            background-size: 200% 100%;
+            animation: synapseFlow 2s infinite linear;
+        }
+
+        @keyframes neuronPulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes synapseFlow {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        /* طراحی شیشه‌ای پیشرفته */
+        .neuro-glass {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .neuro-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .neuro-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* تایپوگرافی */
+        .gradient-text {
+            background: linear-gradient(135deg, 
+                #6366f1 0%, 
+                #8b5cf6 25%, 
+                #06b6d4 50%, 
+                #10b981 75%, 
+                #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* انیمیشن‌ها */
+        .float-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(2deg); 
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* دکمه‌ها و فرم‌ها */
+        .btn-neuro {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border: none;
+            border-radius: 16px;
+            padding: 16px 32px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-neuro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-neuro:hover::before {
+            left: 100%;
+        }
+
+        .btn-neuro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .input-neuro {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 18px 22px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .input-neuro:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* اسکرول بار */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .neuro-glass {
+                margin: 10px;
+                border-radius: 18px;
+            }
+            
+            .input-neuro {
+                padding: 16px 18px;
+            }
+            
+            .btn-neuro {
+                padding: 14px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- بک‌گراند لایو -->
+    <div class="live-brain-bg"></div>
+    <div class="floating-lights">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+    <div class="neural-network" id="neuralCanvas"></div>
+
+    <!-- محتوای اصلی -->
+    <div class="min-h-screen relative z-10">
+        <!-- هدر -->
+        <header class="pt-10 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <div class="neuro-glass p-10 slide-up text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="pulse-glow rounded-2xl p-4 mb-6">
+                            <i class="fas fa-brain text-5xl gradient-text"></i>
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-bold gradient-text mb-4">
+                            NeuroVision AI
+                        </h1>
+                        <p class="text-xl lg:text-2xl text-gray-300 mb-2">
+                            Advanced Neural Research Analysis
+                        </p>
+                        <div class="flex items-center space-x-4 mt-4">
+                            <span class="px-4 py-2 neuro-card text-sm">
+                                <i class="fas fa-bolt text-yellow-400 mr-2"></i>
+                                Real-time Analysis
+                            </span>
+                            <span class="px-4 py-2 neuro-card text-sm">
+                                <i class="fas fa-robot text-green-400 mr-2"></i>
+                                AI Powered
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- بخش جستجو -->
+        <section class="py-16 px-4">
+            <div class="container mx-auto max-w-5xl">
+                <div class="neuro-glass p-10 lg:p-12 slide-up">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6 gradient-text">
+                            Discover Medical Breakthroughs
+                        </h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Enter any medical topic and let our neural network analyze the latest research with advanced AI algorithms
+                        </p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto">
+                        <div class="flex flex-col lg:flex-row gap-4 mb-12">
+                            <input 
+                                type="text" 
+                                id="searchQuery"
+                                placeholder="🧠 Search diseases, treatments, medical research..."
+                                class="input-neuro flex-1 text-lg"
+                            >
+                            <button 
+                                onclick="searchArticles()"
+                                class="btn-neuro flex items-center justify-center space-x-3 whitespace-nowrap"
+                            >
+                                <i class="fas fa-search"></i>
+                                <span class="text-lg">Analyze Research</span>
+                            </button>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="neuro-card p-8 text-center float-animation">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-chart-pie text-2xl text-white"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3">Sentiment Analysis</h3>
+                                <p class="text-gray-400">AI-powered emotional intelligence</p>
+                            </div>
+                            <div class="neuro-card p-8 text-center float-animation" style="animation-delay: 0.2s">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                                    <i class="fas fa-cloud text-2xl text-white"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3">Word Intelligence</h3>
+                                <p class="text-gray-400">Smart keyword visualization</p>
+                            </div>
+                            <div class="neuro-card p-8 text-center float-animation" style="animation-delay: 0.4s">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                                    <i class="fas fa-network-wired text-2xl text-white"></i>
+                                </div>
+                                <h3 class="font-bold text-xl mb-3">Neural Mapping</h3>
+                                <p class="text-gray-400">Concept relationship networks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش مقالات -->
+        <section id="articlesSection" class="hidden py-12 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <div class="neuro-glass p-10">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-center gradient-text">
+                        Select Research Article
+                    </h2>
+                    <div id="articlesList" class="space-y-6 max-h-[600px] overflow-y-auto pr-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش نتایج -->
+        <section id="resultsSection" class="hidden py-12 px-4">
+            <div class="container mx-auto max-w-7xl">
+                <!-- اطلاعات مقاله -->
+                <div class="neuro-glass p-10 mb-12 slide-up">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-start mb-8 gap-6">
+                        <div class="flex-1">
+                            <h2 id="articleTitle" class="text-2xl lg:text-4xl font-bold text-white leading-tight mb-4"></h2>
+                            <div class="flex flex-wrap gap-3">
+                                <span id="articleSentiment" class="neuro-card px-5 py-3 font-semibold text-lg flex items-center">
+                                    <i class="fas fa-heart mr-2"></i>
+                                    <span id="sentimentText"></span>
+                                </span>
+                                <a id="articleLink" target="_blank" class="btn-neuro text-base px-5 py-3 flex items-center">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    View Full Paper
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center text-white">
+                                <i class="fas fa-file-medical text-blue-400 mr-3 text-2xl"></i>
+                                Research Abstract
+                            </h3>
+                            <div class="neuro-card p-6 max-h-80 overflow-y-auto">
+                                <p id="articleAbstract" class="text-gray-300 leading-relaxed text-lg"></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center text-white">
+                                <i class="fas fa-robot text-green-400 mr-3 text-2xl"></i>
+                                AI Neural Summary
+                            </h3>
+                            <div class="neuro-card p-6 bg-gradient-to-br from-gray-900/50 to-purple-900/20">
+                                <p id="aiSummary" class="text-gray-300 leading-relaxed text-lg"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نمودارها -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="neuro-glass p-8 slide-up">
+                        <h3 class="text-2xl font-bold mb-6 text-center gradient-text">
+                            <i class="fas fa-chart-pie mr-2"></i>
+                            Sentiment Distribution
+                        </h3>
+                        <div class="chart-container p-4">
+                            <img id="sentimentChart" class="w-full h-80 object-contain rounded-xl">
+                        </div>
+                    </div>
+                    <div class="neuro-glass p-8 slide-up">
+                        <h3 class="text-2xl font-bold mb-6 text-center gradient-text">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            Word Frequency
+                        </h3>
+                        <div class="chart-container p-4">
+                            <img id="wordFreqChart" class="w-full h-80 object-contain rounded-xl">
+                        </div>
+                    </div>
+                    <div class="neuro-glass p-8 slide-up">
+                        <h3 class="text-2xl font-bold mb-6 text-center gradient-text">
+                            <i class="fas fa-cloud mr-2"></i>
+                            Neural Word Cloud
+                        </h3>
+                        <div class="chart-container p-4">
+                            <img id="wordcloudChart" class="w-full h-80 object-contain rounded-xl">
+                        </div>
+                    </div>
+                    <div class="neuro-glass p-8 slide-up">
+                        <h3 class="text-2xl font-bold mb-6 text-center gradient-text">
+                            <i class="fas fa-project-diagram mr-2"></i>
+                            Concept Network
+                        </h3>
+                        <div class="chart-container p-4">
+                            <img id="networkChart" class="w-full h-80 object-contain rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سوال و جواب -->
+                <div class="neuro-glass p-10 slide-up">
+                    <h3 class="text-3xl font-bold mb-8 text-center gradient-text">
+                        <i class="fas fa-comments mr-3"></i>
+                        Neural Q&A System
+                    </h3>
+                    <div class="max-w-5xl mx-auto">
+                        <div class="flex flex-col lg:flex-row gap-4 mb-8">
+                            <input 
+                                type="text" 
+                                id="questionInput"
+                                placeholder="💭 Ask anything about this research..."
+                                class="input-neuro flex-1 text-lg"
+                            >
+                            <button 
+                                onclick="askQuestion()"
+                                class="btn-neuro flex items-center justify-center space-x-3 whitespace-nowrap text-lg"
+                            >
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Ask Neural AI</span>
+                            </button>
+                        </div>
+                        <div id="answerSection" class="hidden neuro-card p-8 bg-gradient-to-br from-gray-900/50 to-green-900/20">
+                            <h4 class="font-bold text-2xl mb-4 flex items-center text-white">
+                                <i class="fas fa-brain text-green-400 mr-3"></i>
+                                Neural AI Response:
+                            </h4>
+                            <p id="aiAnswer" class="text-gray-300 leading-relaxed text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- لودینگ -->
+    <div id="loading" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50">
+        <div class="neuro-glass p-12 text-center max-w-md mx-4">
+            <div class="animate-spin rounded-full h-20 w-20 border-b-2 border-purple-400 mx-auto mb-6"></div>
+            <h3 class="text-2xl font-bold gradient-text mb-4">Neural Processing</h3>
+            <p class="text-gray-300">Analyzing research with advanced neural networks...</p>
+            <div class="mt-4 flex justify-center space-x-2">
+                <div class="w-2 h-2 bg-purple-400 rounded-full animate-bounce"></div>
+                <div class="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ایجاد شبکه عصبی پویا
+        function createNeuralNetwork() {
+            const container = document.getElementById('neuralCanvas');
+            const neurons = 80;
+            const synapses = 120;
+
+            // ایجاد نورون‌ها
+            for (let i = 0; i < neurons; i++) {
+                const neuron = document.createElement('div');
+                neuron.className = 'neuron';
+                neuron.style.left = Math.random() * 100 + '%';
+                neuron.style.top = Math.random() * 100 + '%';
+                neuron.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(neuron);
+            }
+
+            // ایجاد سیناپس‌ها
+            for (let i = 0; i < synapses; i++) {
+                const synapse = document.createElement('div');
+                synapse.className = 'synapse';
+                synapse.style.left = Math.random() * 100 + '%';
+                synapse.style.top = Math.random() * 100 + '%';
+                synapse.style.width = Math.random() * 150 + 50 + 'px';
+                synapse.style.transform = `rotate(${Math.random() * 360}deg)`;
+                synapse.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(synapse);
+            }
+        }
+
+        let currentAbstract = '';
+
+        // جستجوی مقالات
+        async function searchArticles() {
+            const query = document.getElementById('searchQuery').value.trim();
+            if (!query) {
+                alert('🔍 Please enter a search query!');
+                return;
+            }
+
+            showLoading();
+            
+            try {
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({query})
+                });
+
+                const data = await response.json();
+                hideLoading();
+
+                if (data.success) {
+                    displayArticles(data.articles);
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                hideLoading();
+                alert('❌ Search failed: ' + error.message);
+            }
+        }
+
+        // نمایش مقالات
+        function displayArticles(articles) {
+            const container = document.getElementById('articlesList');
+            container.innerHTML = '';
+
+            if (!articles || articles.length === 0) {
+                container.innerHTML = `
+                    <div class="neuro-card p-8 text-center">
+                        <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-400 text-lg">No articles found. Try a different search term.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            articles.forEach((article, index) => {
+                const articleDiv = document.createElement('div');
+                articleDiv.className = 'neuro-card p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group';
+                articleDiv.onclick = () => analyzeArticle(index);
+                articleDiv.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1 mr-4">
+                            <h3 class="font-bold text-white text-lg mb-3 group-hover:text-purple-300 transition-colors">
+                                ${article.title}
+                            </h3>
+                            <p class="text-gray-400 text-sm truncate">${article.link}</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl text-white font-semibold text-sm transition-transform group-hover:scale-105">
+                                Analyze
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(articleDiv);
+            });
+
+            document.getElementById('articlesSection').classList.remove('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            
+            // اسکرول به بخش مقالات
+            document.getElementById('articlesSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // تحلیل مقاله
+        async function analyzeArticle(index) {
+            showLoading();
+            
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({article_index: index})
+                });
+
+                const data = await response.json();
+                hideLoading();
+
+                if (data.success) {
+                    displayResults(data);
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                hideLoading();
+                alert('❌ Analysis failed: ' + error.message);
+            }
+        }
+
+        // نمایش نتایج
+        function displayResults(data) {
+            currentAbstract = data.abstract;
+
+            // آپدیت اطلاعات مقاله
+            document.getElementById('articleTitle').textContent = data.title;
+            document.getElementById('articleAbstract').textContent = data.abstract;
+            document.getElementById('aiSummary').textContent = data.ai_summary;
+            
+            // آپدیت احساسات با آیکون مناسب
+            const sentimentElement = document.getElementById('articleSentiment');
+            const sentimentText = document.getElementById('sentimentText');
+            sentimentText.textContent = data.overall_sentiment;
+            
+            // رنگ‌بندی احساسات
+            if (data.overall_sentiment.includes('POSITIVE')) {
+                sentimentElement.innerHTML = '<i class="fas fa-smile mr-2 text-green-400"></i> Positive';
+                sentimentElement.style.background = 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1))';
+            } else if (data.overall_sentiment.includes('NEGATIVE')) {
+                sentimentElement.innerHTML = '<i class="fas fa-frown mr-2 text-red-400"></i> Negative';
+                sentimentElement.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))';
+            } else {
+                sentimentElement.innerHTML = '<i class="fas fa-meh mr-2 text-yellow-400"></i> Neutral';
+                sentimentElement.style.background = 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1))';
+            }
+
+            document.getElementById('articleLink').href = data.link;
+
+            // آپدیت نمودارها
+            if (data.charts.sentiment) {
+                document.getElementById('sentimentChart').src = `data:image/png;base64,${data.charts.sentiment}`;
+            }
+            if (data.charts.word_frequency) {
+                document.getElementById('wordFreqChart').src = `data:image/png;base64,${data.charts.word_frequency}`;
+            }
+            if (data.charts.wordcloud) {
+                document.getElementById('wordcloudChart').src = `data:image/png;base64,${data.charts.wordcloud}`;
+            }
+            if (data.charts.network) {
+                document.getElementById('networkChart').src = `data:image/png;base64,${data.charts.network}`;
+            }
+
+            // نمایش نتایج
+            document.getElementById('articlesSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // اسکرول به نتایج
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // پرسش و پاسخ
+        async function askQuestion() {
+            const question = document.getElementById('questionInput').value.trim();
+            if (!question) {
+                alert('💭 Please enter a question!');
+                return;
+            }
+            if (!currentAbstract) {
+                alert('📄 Please analyze an article first!');
+                return;
+            }
+
+            showLoading();
+            
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({question, abstract: currentAbstract})
+                });
+
+                const data = await response.json();
+                hideLoading();
+
+                if (data.success) {
+                    document.getElementById('aiAnswer').textContent = data.answer;
+                    document.getElementById('answerSection').classList.remove('hidden');
+                    
+                    // اسکرول به پاسخ
+                    setTimeout(() => {
+                        document.getElementById('answerSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            } catch (error) {
+                hideLoading();
+                alert('❌ Question failed: ' + error.message);
+            }
+        }
+
+        // توابع کمکی
+        function showLoading() {
+            document.getElementById('loading').classList.remove('hidden');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.add('hidden');
+        }
+
+        // ایونت‌ها
+        document.getElementById('searchQuery').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchArticles();
+        });
+
+        document.getElementById('questionInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') askQuestion();
+        });
+
+        // مقداردهی اولیه
+        createNeuralNetwork();
+        console.log('🧠 NeuroVision AI Ready!');
+    </script>
+</body>
+</html>
